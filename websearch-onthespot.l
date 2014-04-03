@@ -46,6 +46,11 @@
   (interactive)
   (websearch-onthespot t))
 
+(add-hook '*post-startup-hook*
+        #'(lambda()
+            (add-menu-item *app-popup-menu* nil "‘I‘ğ”ÍˆÍ‚ğWebŒŸõ (&G)"
+                 'websearch-onthespot nil)))
+
 (defun websearch-onthespot (&rest lst)
   (interactive)
   (let ((with-confirm (nth 0 lst))
