@@ -54,7 +54,8 @@
                           (string-trim " \n\t" (buffer-substring
                                                 (min (selection-mark) (selection-point))
                                                 (max (selection-mark) (selection-point))))))
-        (cand-region (string-trim " \n\t" (buffer-substring (region-beginning) (region-end))))
+        (cand-region (if (not (mark t)) nil
+                       (string-trim " \n\t" (buffer-substring (region-beginning) (region-end)))))
         (cand-word (websearch-onthespot-word))
         )
     (setf query-text
